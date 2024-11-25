@@ -1,4 +1,5 @@
 const { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes, nextISSTimesForMyLocation } = require('./iss');
+const { printPassTimes } = require('./printPassTimes');
 
 fetchMyIP((error, ip) => {
   if (error) {
@@ -29,7 +30,8 @@ fetchMyIP((error, ip) => {
           return console.log("It didn't work!", error);
         }
         // success, print out the deets!
-        console.log(passTimes);
+        console.log('It worked! Returned fly over times:', passTimes); 
+        printPassTimes(passTimes);
       });
     });
   });
